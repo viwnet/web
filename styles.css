@@ -14,29 +14,7 @@ body {
     padding-top: 40px;
     margin-bottom: 50px;
 }
-/*
-.banner {
-    position: relative;
-    display: inline-block;
-}
 
-.banner-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
-
-.profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 5px solid white;
-    position: absolute;
-    bottom: -75px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-*/
 h1 {
     font-size: 36px;
     margin-top: 80px;
@@ -55,7 +33,7 @@ h1 {
 
 .option {
     background-color: black;
-    color: #white;
+    color: #fff;
     font-family: Arial, sans-serif;
     margin: 20px 0;
     padding: 20px;
@@ -74,53 +52,36 @@ h1 {
     font-size: 18px;
 }
 
-/* Animación de sombra multicolor */
-@keyframes colorCycle {
-    0% {
-        box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.8);  /* Rojo */
+/* Estilos del contador con animación de sombra blanca */
+.timer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 20px;
+    background-color: #333;
+    animation: whiteShadowBlink 1.5s infinite; /* Animación infinita de parpadeo */
+}
+
+/* Animación para sombra blanca parpadeante */
+@keyframes whiteShadowBlink {
+    0%, 50% {
+        box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.8); /* Sombra blanca intensa */
     }
-    6.67% {
-        box-shadow: 0px 0px 20px rgba(255, 165, 0, 0.8); /* Naranja */
+    50.01%, 100% {
+        box-shadow: none; /* Sin sombra */
     }
-    13.34% {
-        box-shadow: 0px 0px 20px rgba(255, 255, 0, 0.8); /* Amarillo */
-    }
-    20.01% {
-        box-shadow: 0px 0px 20px rgba(0, 128, 0, 0.8); /* Verde */
-    }
-    26.68% {
-        box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.8); /* Cian */
-    }
-    33.35% {
-        box-shadow: 0px 0px 20px rgba(0, 0, 255, 0.8); /* Azul */
-    }
-    40.02% {
-        box-shadow: 0px 0px 20px rgba(75, 0, 130, 0.8); /* Índigo */
-    }
-    46.69% {
-        box-shadow: 0px 0px 20px rgba(238, 130, 238, 0.8); /* Violeta */
-    }
-    53.36% {
-        box-shadow: 0px 0px 20px rgba(255, 20, 147, 0.8); /* Rosa fuerte */
-    }
-    60.03% {
-        box-shadow: 0px 0px 20px rgba(255, 105, 180, 0.8); /* Rosa claro */
-    }
-    66.7% {
-        box-shadow: 0px 0px 20px rgba(255, 69, 0, 0.8); /* Naranja rojizo */
-    }
-    73.37% {
-        box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.8); /* Dorado */
-    }
-    80.04% {
-        box-shadow: 0px 0px 20px rgba(127, 255, 0, 0.8); /* Verde lima */
-    }
-    86.71% {
-        box-shadow: 0px 0px 20px rgba(64, 224, 208, 0.8); /* Turquesa */
-    }
-    100% {
-        box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.8); /* De vuelta a rojo */
-    }
+}
+
+.time-section {
+    margin: 0 15px;
+}
+
+.time-part {
+    font-size: 48px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px; /* Bordes redondeados */
 }
 
 /* Efecto hover en las opciones */
