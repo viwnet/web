@@ -22,7 +22,7 @@ function startTimer() {
 
         // Horas objetivo para mostrar el botón (9:15 a 3:30)
         const startHour = 9; // 9 AM
-        const startMinute = 15; // 9/15 AM
+        const startMinute = 15; // 9:15 AM
         const endHour = 15;   // 3 PM
         const endMinute = 30; // 3:30 PM
 
@@ -30,7 +30,7 @@ function startTimer() {
             (now.getHours() > startHour || (now.getHours() === startHour && now.getMinutes() >= startMinute)) &&
             (now.getHours() < endHour || (now.getHours() === endHour && now.getMinutes() <= endMinute))
         ) {
-            specialButton.style.display = 'block'; // Mostrar el botón entre 1:15 PM y 7:30 PM
+            specialButton.style.display = 'block'; // Mostrar el botón entre 9:15 AM y 3:30 PM
         } else {
             specialButton.style.display = 'none'; // Ocultar fuera del rango de horas
         }
@@ -38,5 +38,25 @@ function startTimer() {
 
     setInterval(updateTimer, 1000); // Actualiza cada segundo
 }
+
+// Función para calcular el ping
+function calculatePing() {
+    const startTime = Date.now();
+
+    fetch('https://www.google.com/', { method: 'HEAD', mode: 'no-cors' })
+        .then(() => {
+            const endTime = Date.now();
+            const ping = endTime - startTime;
+
+            // Mostrar el PING en la página
+            document.getElementById('ping').textContent = `Ping: ${ping} ms`;
+        })
+        .catch(() => {
+            document.getElementById('ping').textContent = 'Ping: No disponible';
+        });
+}
+
+// Llamar a la función del ping cada 1 segundos
+setInterval(calculatePing, 555);
 
 window.onload = startTimer;
