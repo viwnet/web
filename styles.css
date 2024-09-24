@@ -81,11 +81,12 @@ h1 {
 
 /* Botón */
 .button {
-    background-color: #007bff;
+    background-color: #transparent;
     color: white;
     padding: 10px 20px;
     border-radius: 25px;
     text-decoration: none;
+    border: 2px solid white; /* Borde blanco */
     font-size: 16px;
     transition: background-color 0.3s ease;
     display: inline-block;
@@ -93,7 +94,7 @@ h1 {
 }
 
 .button:hover {
-    background-color: #0056b3;
+    background-color: #00CDDC;
 }
 
 /* Estilos del contador con animación de sombra blanca */
@@ -141,7 +142,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10vh; /* Hace que el contenedor ocupe toda la altura de la pantalla */
+    height: 5vh; /* Hace que el contenedor ocupe toda la altura de la pantalla */
 }
 
 #special-button {
@@ -175,4 +176,4 @@ footer {
     100% {
         box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Blanco */
     }
-}
+        }
