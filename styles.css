@@ -136,3 +136,43 @@ footer {
     color: white;
     font-size: 14px;
 }
+/* Centramos el botón especial */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh; /* Hace que el contenedor ocupe toda la altura de la pantalla */
+}
+
+#special-button {
+    background-color: transparent; /* Botón transparente */
+    color: white; /* Texto blanco */
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 16px;
+    border: 2px solid white; /* Borde blanco */
+    cursor: pointer;
+    display: none; /* Oculto por defecto */
+    animation: shadowBlink 1.5s infinite ease-in-out; /* Animación de sombra parpadeante */
+}
+
+/* Estilo hover: cambia el color del borde y del texto cuando se pasa el ratón */
+#special-button:hover {
+    background-color: transparent;
+    color: red; /* Texto cambia a rojo */
+    border: 2px solid red; /* Borde cambia a rojo */
+}
+
+/* Animación de sombra blanca y roja */
+@keyframes shadowBlink {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Blanco */
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.8); /* Rojo */
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Blanco */
+    }
+    }
