@@ -20,7 +20,7 @@ function startTimer() {
         minutesElement.textContent = String(minutes).padStart(2, '0');
         secondsElement.textContent = String(seconds).padStart(2, '0');
 
-        // Horas objetivo para mostrar el botón (13:15 a 19:30)
+        // Horas objetivo para mostrar el botón (6:30 a 12:30)
         const startHour = 6; // 6 AM
         const startMinute = 30; // 6:30 AM
         const endHour = 12;   // 12 PM
