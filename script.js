@@ -6,22 +6,22 @@ const letters = text.split('');
 // Limpiamos el contenido y envolvemos cada letra en un <span>
 textElement.textContent = '';
 letters.forEach(letter => {
-    const span = document.createElement('spanti');
+    const span = document.createElement('span');
     span.textContent = letter;
     textElement.appendChild(span);
 });
 
 // Función para aplicar el efecto de cortina de tres letras
 function changeColor() {
-    const spans = textElement.querySelectorAll('spanti');
+    const spans = textElement.querySelectorAll('span');
     let currentIndex = 0; // Empezamos por la primera letra
 
     const interval = setInterval(() => {
-        // Primero, restauramos todas las letras a su color original (negro)
+        // Primero, restauramos todas las letras a su color original (sin clase)
         spans.forEach(span => span.className = '');
 
         // Aplicamos color rojo a las tres letras actuales
-        for (let i = currentIndex; i < currentIndex + 3 && i < spans.length; i++) {
+        for (let i = currentIndex; i < currentIndex + 4 && i < spans.length; i++) {
             spans[i].classList.add('color-red1');
         }
 
@@ -29,20 +29,13 @@ function changeColor() {
         currentIndex++;
 
         // Si llegamos al final, reiniciamos desde el principio
-        if (currentIndex > spans.length) {
+        if (currentIndex >= spans.length) {
             currentIndex = 0;
         }
     }, 150); // Ajusta la velocidad del efecto
 }
 
-// Ejecutamos la función al cargar la página
-window.onload = () => {
-    changeColor();
-    startTimer();
-};
-
-// Función del cronómetro y ping...
-
+// Función para iniciar el cronómetro
 function startTimer() {
     const startDate = new Date("2024-09-22T15:10:00"); // Fecha de inicio
     const daysElement = document.getElementById('days');
@@ -84,6 +77,7 @@ function startTimer() {
     setInterval(updateTimer, 1000); // Actualiza cada segundo
 }
 
+// Función para calcular el ping
 function calculatePing() {
     const startTime = Date.now();
     const imageUrl = "https://www.example.com/ping-test"; // URL para hacer ping
