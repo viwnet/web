@@ -21,7 +21,7 @@ function changeColor() {
         spans.forEach(span => span.className = '');
 
         // Aplicamos color rojo a las tres letras actuales
-        for (let i = currentIndex; i < currentIndex + 4 && i < spans.length; i++) {
+        for (let i = currentIndex; i < currentIndex + 3 && i < spans.length; i++) {
             spans[i].classList.add('color-red1');
         }
 
@@ -80,23 +80,28 @@ function startTimer() {
 // Función para calcular el ping
 function calculatePing() {
     const startTime = Date.now();
-    const imageUrl = "https://www.example.com/ping-test"; // URL para hacer ping
+    const imageUrl = "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"; // URL válida para hacer ping
 
-    fetch(imageUrl)
-        .then(response => {
+    fetch(imageUrl, { mode: 'no-cors' }) // Usamos 'no-cors' para evitar problemas con políticas de CORS
+        .then(() => {
             const endTime = Date.now();
-            const ping = endTime - startTime;
+            let ping = endTime - startTime;
+
+            // Limitar el valor del ping a un máximo de 999 ms
+            ping = Math.min(Math.round(ping), 999);
+
+            // Mostrar el ping en la página
             document.getElementById('ping').textContent = `Ping: ${ping} ms`;
         })
-        .catch(error => {
+        .catch(() => {
             document.getElementById('ping').textContent = "Ping: Error al calcular.";
         });
 }
 
-// Ejecutar la función de ping al cargar la página y luego cada 10 segundos
+// Ejecutar la función de ping al cargar la página y luego cada 3 segundos
 window.onload = () => {
     changeColor();
     startTimer();
     calculatePing(); // Llamada inicial
-    setInterval(calculatePing, 300); // Calcular ping cada 10 segundos
+    setInterval(calculatePing, 300); // Calcular ping cada 3 segundos
 };
