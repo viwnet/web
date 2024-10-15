@@ -1,3 +1,48 @@
+// Seleccionamos el texto
+const textElement = document.getElementById('animated-text');
+const text = textElement.textContent;
+const letters = text.split('');
+
+// Limpiamos el contenido y envolvemos cada letra en un <span>
+textElement.textContent = '';
+letters.forEach(letter => {
+    const span = document.createElement('spanti');
+    span.textContent = letter;
+    textElement.appendChild(span);
+});
+
+// Función para aplicar el efecto de cortina de tres letras
+function changeColor() {
+    const spans = textElement.querySelectorAll('spanti');
+    let currentIndex = 0; // Empezamos por la primera letra
+
+    const interval = setInterval(() => {
+        // Primero, restauramos todas las letras a su color original (negro)
+        spans.forEach(span => span.className = '');
+
+        // Aplicamos color rojo a las tres letras actuales
+        for (let i = currentIndex; i < currentIndex + 3 && i < spans.length; i++) {
+            spans[i].classList.add('color-red1');
+        }
+
+        // Mover la "ventana" de tres letras hacia la derecha
+        currentIndex++;
+
+        // Si llegamos al final, reiniciamos desde el principio
+        if (currentIndex > spans.length) {
+            currentIndex = 0;
+        }
+    }, 150); // Ajusta la velocidad del efecto
+}
+
+// Ejecutamos la función al cargar la página
+window.onload = () => {
+    changeColor();
+    startTimer();
+};
+
+// Función del cronómetro y ping...
+
 function startTimer() {
     const startDate = new Date("2024-09-22T15:10:00"); // Fecha de inicio
     const daysElement = document.getElementById('days');
@@ -39,24 +84,25 @@ function startTimer() {
     setInterval(updateTimer, 1000); // Actualiza cada segundo
 }
 
-// Función para calcular el ping
 function calculatePing() {
     const startTime = Date.now();
+    const imageUrl = "https://www.example.com/ping-test"; // URL para hacer ping
 
-    fetch('https://www.google.com/', { method: 'HEAD', mode: 'no-cors' })
-        .then(() => {
+    fetch(imageUrl)
+        .then(response => {
             const endTime = Date.now();
             const ping = endTime - startTime;
-
-            // Mostrar el PING en la página
             document.getElementById('ping').textContent = `Ping: ${ping} ms`;
         })
-        .catch(() => {
-            document.getElementById('ping').textContent = 'Ping: No disponible';
+        .catch(error => {
+            document.getElementById('ping').textContent = "Ping: Error al calcular.";
         });
 }
 
-// Llamar a la función del ping cada 1 segundos
-setInterval(calculatePing, 555);
-
-window.onload = startTimer;
+// Ejecutar la función de ping al cargar la página y luego cada 10 segundos
+window.onload = () => {
+    changeColor();
+    startTimer();
+    calculatePing(); // Llamada inicial
+    setInterval(calculatePing, 300); // Calcular ping cada 10 segundos
+};
