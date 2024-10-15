@@ -244,3 +244,32 @@ footer {
     margin-top: 10px;
     text-align: center;
 }
+
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    color: white;
+    text-align: center;
+}
+
+/* Animación del texto SERVIDOR 1 × ANDREX */
+#animated-text {
+    font-size: 40px;
+    font-family: Arial, sans-serif;
+    display: inline-block;
+    letter-spacing: 4px;
+}
+
+spanti {
+    color: black; /* Color original */
+    transition: color 0.3s ease-in-out;
+}
+
+.color-red1 {
+    color: red;
+}
+
+/* Resto de tus estilos... */
