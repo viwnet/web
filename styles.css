@@ -3,6 +3,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    text-shadow: 1px 0px white;
     background-color: #222;
     color: white;
     text-align: center;
@@ -38,27 +39,42 @@ body {
     border-bottom: 2px solid black; /* Línea en la parte inferior */
 }
 
-.profile-pic, .profile-pic2, .profile-pic3 {
+.profile-pic1, .profile-pic2, .profile-pic3, .profile-pic4, .profile-pic5, .profile-pic6 {
     width: 75px;
     height: 75px;
     border-radius: 50%;
-    border: 3px solid purple;
+    border: 3px solid #222;
     position: absolute;
     bottom: -37.5px; /* Parte inferior de la imagen sale del contenedor */
 }
 
-.profile-pic {
-    left: 10%; /* Imagen a la izquierda */
+.profile-pic1 {
+    left: 9%; /* Imagen a la izquierda */
     transform: translateX(-50%);
 }
 
 .profile-pic2 {
-    left: 50%; /* Imagen en el centro */
+    left: 26%; /* Imagen en el centro */
     transform: translateX(-50%);
 }
 
 .profile-pic3 {
-    left: 90%; /* Imagen a la derecha */
+    left: 42%; /* Imagen a la derecha */
+    transform: translateX(-50%);
+}
+
+.profile-pic4 {
+    left: 58%; /* Imagen a la derecha */
+    transform: translateX(-50%);
+}
+
+.profile-pic5 {
+    left: 74%; /* Imagen a la derecha */
+    transform: translateX(-50%);
+}
+
+.profile-pic6 {
+    left: 91%; /* Imagen a la derecha */
     transform: translateX(-50%);
 }
 
@@ -71,7 +87,7 @@ body {
 
 h1 {
     font-size: 36px;
-    margin-top: 80px;
+    margin-top: 15px;
 }
 
 .description {
@@ -109,8 +125,8 @@ h1 {
 }
 
 .option p {
-    margin: 5px 0;
-    font-size: 18px;
+    margin: 15px 0;
+    font-size: 5px;
 }
 
 /* Animación de sombra multicolor */
@@ -192,7 +208,7 @@ h1 {
 
 /* Pie de página */
 footer {
-    margin-top: 50px;
+    margin-top: 1px;
     padding: 20px;
     background-color: #111;
     color: white;
