@@ -86,12 +86,12 @@ body {
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 31ppx;
     margin-top: 15px;
 }
 
 .description {
-    font-size: 25px;
+    font-size: 20px;
     margin-top: 10px;
     color: red;
 }
@@ -274,7 +274,7 @@ footer {
 
 /* Animación del texto SERVIDOR 1 × ANDREX */
 #animated-text {
-    font-size: 40px;
+    font-size: 33px;
     font-family: Arial, sans-serif;
     display: block; /* Asegura que el texto esté en una nueva línea */
     margin-top: 50px; /* Coloca el texto 50px debajo de la imagen */
