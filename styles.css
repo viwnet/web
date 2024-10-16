@@ -8,6 +8,18 @@ body {
     text-align: center;
 }
 
+.logo-container {
+    position: absolute; /* Posiciona el logotipo de forma absoluta */
+    top: 50px; /* Ajusta la distancia desde la parte superior (incrementado para bajar más) */
+    left: 10px; /* Mantén el logotipo cerca del borde izquierdo */
+    padding: 2px;
+}
+
+.logo {
+    width: 75px; /* Ajusta el tamaño del logotipo según sea necesario */
+    height: auto;
+}
+
 .banner {
     position: relative;
     display: inline-block;
