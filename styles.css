@@ -43,7 +43,7 @@ body {
     width: 75px;
     height: 75px;
     border-radius: 50%;
-    border: 3px solid #222;
+    border: 0px solid #222;
     position: absolute;
     bottom: -37.5px; /* Parte inferior de la imagen sale del contenedor */
 }
