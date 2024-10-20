@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.video-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribuye los videos a la izquierda, centro y derecha */
+    gap: 20px; /* Espacio entre los videos */
+}
+
+.video-grid video {
+    width: 100%; /* El video ocupará todo el espacio dentro de su contenedor */
+    max-width: 300px; /* Tamaño máximo del video */
+    border: 3px solid #fff;
+    border-radius: 10px;
+}
+
+.video-item {
+    flex: 1 1 calc(33.333% - 20px); /* Tres videos por fila, con espacio entre ellos */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; /* Centra el video dentro de su contenedor */
+}
+
+/* Para pantallas más pequeñas (como móviles), cambia a una columna */
+@media (max-width: 800px) {
+    .video-item {
+        flex: 1 1 calc(50% - 20px); /* Dos videos por fila en pantallas medianas */
+    }
+}
+
+@media (max-width: 500px) {
+    .video-item {
+        flex: 1 1 100%; /* Un video por fila en pantallas pequeñas */
+    }
+}
