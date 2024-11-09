@@ -43,7 +43,7 @@ body {
     width: 75px;
     height: 75px;
     border-radius: 50%;
-    border: 0px solid #222;
+    border: 3px solid #222;
     position: absolute;
     bottom: -37.5px; /* Parte inferior de la imagen sale del contenedor */
 }
@@ -266,10 +266,54 @@ footer {
 }
 
 #ping {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1px;
+    text-align: center;
     color: white;
     font-size: 16px;
-    margin-top: 10px;
+}
+
+.speedometer {
+    display: flex;
+    justify-content: space-between; /* Espacio entre elementos */
+    align-items: center;
+    background-color: #333;
+    padding: 15px 20px;
+    border-radius: 8px;
+    width: 80%; /* Ajusta el ancho del contenedor */
+    max-width: 500px; /* Ancho máximo */
+    border: 3px solid #1de9b6; /* Borde similar al contador de tiempo */
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8); /* Sombra */
+    position: fixed;
+    top: 10%; /* Posición en la parte superior de la pantalla */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translateX(-50%);
+}
+
+.upload, .ping, .download {
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
     text-align: center;
+    flex: 1; /* Cada elemento ocupa el mismo espacio */
+}
+
+.ping {
+    text-align: center;
+}
+
+#animated-text {
+    font-size: 33px;
+    letter-spacing: 4px;
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.color-red1 {
+    color: red;
 }
 
 /* Animación del texto SERVIDOR 1 × ANDREX */
