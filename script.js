@@ -1,14 +1,17 @@
 // script.js
 
-// Actualización de métricas de velocidad y ping
 function updateMetrics() {
-    // Generar valores de velocidad
-    const downloadSpeed = Math.random() * 100;
-    const uploadSpeed = Math.random() * 50;
+    // Simular la calidad del Internet (valor entre 0 y 1, donde 1 es la mejor calidad)
+    const internetQuality = Math.random();
 
-    // Actualizar valores de subida y descarga
-    document.getElementById('download').innerText = downloadSpeed.toFixed(2);
-    document.getElementById('upload').innerText = uploadSpeed.toFixed(2);
+    // Generar valores de velocidad en Kb/s, con un máximo de 10 MB/s (10,000 Kb/s)
+    const maxSpeedKb = 1500; // 5 MB en Kb
+    const downloadSpeedKb = (internetQuality * maxSpeedKb).toFixed(2);
+    const uploadSpeedKb = (internetQuality * maxSpeedKb).toFixed(2);
+
+    // Convertir y mostrar velocidades
+    document.getElementById('download').innerText = formatSpeed(downloadSpeedKb);
+    document.getElementById('upload').innerText = formatSpeed(uploadSpeedKb);
 
     // Calcular ping
     const startTime = Date.now();
@@ -28,6 +31,18 @@ function updateMetrics() {
         .catch(() => {
             document.getElementById('ping').textContent = "Ping: Error al calcular.";
         });
+}
+
+// Función para formatear la velocidad en Kb/s o MB/s
+function formatSpeed(speedKb) {
+    const speed = parseFloat(speedKb);
+    if (speed >= 1000) {
+        // Convertir a MB si la velocidad es mayor o igual a 1000 Kb
+        return `${(speed / 1000).toFixed(2)} MB/s`;
+    } else {
+        // Mostrar en Kb si la velocidad es menor a 1000 Kb
+        return `${speed.toFixed(2)} Kb/s`;
+    }
 }
 
 // Efecto de cortina de tres letras en texto
@@ -104,7 +119,7 @@ function startTimer() {
 
 // Iniciar funciones cuando la página cargue
 window.onload = () => {
-    setInterval(updateMetrics, 1000); // Actualizar métricas cada segundo
+    setInterval(updateMetrics, 500); // Actualizar métricas cada segundo
     changeColor(); // Iniciar el efecto de cortina de letras
     startTimer(); // Iniciar temporizador
 };
